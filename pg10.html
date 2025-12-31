@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Text Change on Hover</title>
+    <style>
+        #container {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #img1 {
+            display: block;
+        }
+        #img2 {
+            display: none;
+        }
+        #p1, #p2 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #p2 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Hover Over the Image</h1>
+    <p style="text-align: center;">Move your mouse over the image to see the change!</p>
+    <div id="container">
+        <!-- Working Unsplash image URLs -->
+        <img id="img1" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=300&h=200&fit=crop" alt="Michael" width="300" height="200">
+        <p id="p1">I am Michael.</p>
+        <img id="img2" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=300&h=200&fit=crop" alt="Johnny" width="300" height="200">
+        <p id="p2">I am Johnny.</p>
+    </div>
+
+    <script>
+        // Get references to the elements
+        const content = document.getElementById('container');
+        const image1 = document.getElementById('img1');
+        const image2 = document.getElementById('img2');
+        const para1 = document.getElementById('p1');
+        const para2 = document.getElementById('p2');
+        // Add mouseover event listener
+        content.addEventListener('mouseover', () => {
+            image1.style.display = 'none';
+            image2.style.display = 'block';
+            para1.style.display = 'none';
+            para2.style.display = 'block';
+        });
+        // Add mouseout event listener
+        content.addEventListener('mouseout', () => {
+            image2.style.display = 'none';
+            image1.style.display = 'block';
+            para2.style.display = 'none';
+            para1.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
