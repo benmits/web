@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Calendar in JS</title>
+<link rel="stylesheet" type="text/css" href="calStyle.css">
+</head>
+<body>
+<h2><center>CALENDAR USING JAVASCRIPT<center></h2>
+<br/>
+<script src="calScript.js"></script>
+Year: <input id="y" type="number" name="year"><br/><br/>
+Month:<input id="m" type="number" name="month"><br/><br/>
+<input type="button" value="Calendar" onclick="createCalendar()"> <br/>
+<br/>
+<div id="cal"></div>
+</body>
+</html>
+calScript.js
+function createCalendar() {
+    var year = document.getElementById("y").value;
+    var month = document.getElementById("m").value;
+   let mon = month - 1; // months in JS are 0..11, not 1..12
+    let d = new Date(year, mon);
+    let table = `<table>
+        <tr>
+           <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th>
+            <th>THU</th><th>FRI</th><th>SAT</th>
+        </tr>
+        <tr>`;
+    // Blank cells for the first row from Sunday till the first day of the month
+    for (let i = 0; i < d.getDay(); i++) {
+        table += '<td></td>';
+    }
+    // <td> with actual dates
+    while (d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>';
+        if (d.getDay() % 7 == 6) { // Saturday, last day of week - newline
+            table += '</tr><tr>';
+        }
+        d.setDate(d.getDate() + 1);
+    }
+    // Add spaces after the last days of the month to fill the table row
+    if (d.getDay() != 0) {
+        for (let i = d.getDay(); i < 7; i++) {
+            table += '<td></td>';
+        }
+    }
+  // Close the table
+    table += '</tr></table>';
+    document.getElementById("cal").innerHTML = table;
+}
+calStyle.css
+table {
+border-collapse: collapse;
+}
+td,
+th {
+border: 1px solid black;
+padding: 3px;
+text-align: center;
+}
+th {
+font-weight: bold;
+background-color: #E6E6E6;
+}
