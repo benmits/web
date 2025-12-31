@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positioning Example</title>
+<!-- Link to External Stylesheets -->
+<link rel="stylesheet" href="relative.css">
+<link rel="stylesheet" href="absolute.css">
+</head>
+<body>
+<h1 class="text-center">Positioning Methods: Relative vs Absolute</h1>
+<!-- Relative Positioning -->
+<div class="relative-container">
+<div class="relative-box">Relative Box</div>
+</div>
+<!-- Absolute Positioning -->
+<div class="absolute-container">
+<div class="absolute-box">Absolute Box</div>
+</div>
+</body>
+</html>
+Relative.css
+/* relative.css */
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f8f9fa;
+}
+.text-center {
+text-align: center;
+margin: 20px 0;
+}
+.relative-container {
+position: relative;
+width: 300px;
+height: 200px;
+margin: 20px auto;
+background-color: #d1e7dd;
+border: 2px solid #0f5132;
+}
+.relative-box {
+position: relative;
+top: 20px;
+left: 20px;
+width: 100px;
+height: 100px;
+background-color: #0d6efd;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+}
+Absolute.css
+/* absolute.css */
+.absolute-container {
+position: relative;
+width: 300px;
+height: 200px;
+margin: 20px auto;
+background-color: #f8d7da;
+border: 2px solid #842029;
+}
+.absolute-box {
+position: absolute;
+top: 20px;
+left: 20px;
+width: 100px;
+height: 100px;
+background-color: #dc3545;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+}
